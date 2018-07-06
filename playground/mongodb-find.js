@@ -16,4 +16,5 @@ MongoClient.connect(url, (err, client) => {
     };
     request();
     // added test comment
+    // and another one
 });
