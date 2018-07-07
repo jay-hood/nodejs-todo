@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/jay-hood/nodejs-todo#readme",
   "dependencies": {
-    "mongodb": "^3.1.1"
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mongodb": "^3.1.1",
+    "mongoose": "^5.2.1"
   }
 }
