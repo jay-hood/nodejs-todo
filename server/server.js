@@ -21,7 +21,19 @@ app.post('/todos', (req, res) => {
     });
 });
 
+app.get('/todos', (req, res) => {
+    // pass request and result callback
+    // find gets everything, and the then() function takes two parameters, a succes (object gets passed)
+    // or an error, in case there is a fail condition
+    Todo.find().then((todos) => {
+        res.send({todos});
+    }, err => {
+        res.status(400).send(err);
+    });
+});
 
 app.listen(3000, () => {
     console.log('Started on port 3000');
 });
+
+module.exports = {app};
