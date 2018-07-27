@@ -18,8 +18,8 @@ app.post('/todos', (req, res) => {
     });
     todo.save().then((doc) => {
         res.send(doc);
-    }, (err) => {
-        res.status(400).send(err);
+    }).catch((err) => {
+        res.status(400).send();
     });
 });
 
@@ -29,8 +29,8 @@ app.get('/todos', (req, res) => {
     // or an error, in case there is a fail condition
     Todo.find().then((todos) => {
         res.send({todos});
-    }, err => {
-        res.status(400).send(err);
+    }).catch((err) => {
+        res.status(400).send();
     });
 });
 
@@ -42,7 +42,9 @@ app.get('/todos/:id', (req, res) => {
     }
     Todo.findById(id).then((todo) => {
         res.send({todo});
-    }, err => res.status(400).send(err));
+    }).catch((err) => {
+        res.status(400).send();
+    });
 });
 
 app.delete('/todos/:id', (req, res) => {
